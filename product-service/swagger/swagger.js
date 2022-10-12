@@ -96,5 +96,6 @@
       "type": "array"
     }
   },
-  "securityDefinitions": {}
+  "securityDefinitions": {},
+  "host": "dzqnp79bsj.execute-api.us-west-2.amazonaws.com/dev/"
 };
