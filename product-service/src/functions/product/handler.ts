@@ -8,8 +8,7 @@ import schema from '../schema';
 const getProductsById: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
   try {
     const { productId } = event.pathParameters;
-    const result = await PRODUCTS_LIST.filter(prod => prod.id.toString() === productId);
-    const product: Product = result && result.length ? result[0] : null;
+    const product:Product = await PRODUCTS_LIST.find(prod => prod.id.toString() === productId);
     return formatJSONResponse({
       statusCode: 200,
       body: product || { message: PRODUCT_NOT_FOUND }
