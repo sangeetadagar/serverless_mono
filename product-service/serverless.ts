@@ -1,11 +1,12 @@
 import type { AWS } from '@serverless/typescript';
 import getProductsList from '@functions/productList';
 import getProductById from '@functions/product';
+import createProduct from '@functions/createProduct';
 
 const serverlessConfiguration: AWS = {
   service: 'product-service',
   frameworkVersion: '3',
-  plugins: ['serverless-auto-swagger','serverless-esbuild'],
+  plugins: ['serverless-auto-swagger','serverless-esbuild','serverless-offline','serverless-iam-roles-per-function'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -18,10 +19,12 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      PRODUCTS_TABLE: 'products',
+      STOCKS_TABLE: 'stocks'
     },
   },
   // import the function via paths
-  functions: { getProductsList, getProductById },
+  functions: { getProductsList, getProductById, createProduct },
   package: { individually: true },
   custom: {
     esbuild: {
@@ -35,7 +38,7 @@ const serverlessConfiguration: AWS = {
       concurrency: 10,
     },
     autoswagger:{
-      host: 'dzqnp79bsj.execute-api.us-west-2.amazonaws.com/dev/',
+      host: '21omv24q73.execute-api.us-west-2.amazonaws.com/dev/',
       typefiles: ['./src/types/api-types.d.ts'],
     }
   },

@@ -6,3 +6,9 @@ Backend services for aws
 
 #### To deploy API
 ###### run inside product-service folder -> sls deploy
+
+
+#### Products Table Script 
+aws dynamodb batch-write-item --request-items file://data.json    
+
+#### Products Table Script 

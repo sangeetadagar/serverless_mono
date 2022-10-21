@@ -1,6 +1,6 @@
 import { Handler } from 'aws-lambda';
 import { middyfy } from '@libs/lambda';
-import { PRODUCTS_LIST } from '../../../constants';
+import { PRODUCTS_LIST } from '../../../__mocks__/constants';
 import { formatJSONResponse } from '@libs/api-gateway';
 
 jest.mock('@libs/lambda');
