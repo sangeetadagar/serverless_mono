@@ -1,0 +1,156 @@
+{
+    "products": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "3e344a4d-af29-4d7f-81ab-135ae9e00a41"
+                    },
+                    "title": {
+                        "S": "iPhone 9"
+                    },
+                    "description": {
+                        "S": "An apple mobile which is nothing like apple."
+                    },
+                    "price": {
+                        "N": "549"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "e8b01837-1372-41cc-a0ee-665e3f05fe5a"
+                    },
+                    "title": {
+                        "S": "iPhone X"
+                    },
+                    "description": {
+                        "S": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip."
+                    },
+                    "price": {
+                        "N": "899"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "8a7d1394-009c-4ab2-b5b4-a91dbcbcf4b7"
+                    },
+                    "title": {
+                        "S": "Samsung Universe 9"
+                    },
+                    "description": {
+                        "S": "Samsung's new variant which goes beyond Galaxy to the Universe."
+                    },
+                    "price": {
+                        "N": "1249"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "61b6b726-25b7-4a32-be83-ca85656f28f2"
+                    },
+                    "title": {
+                        "S": "OPPOF19"
+                    },
+                    "description": {
+                        "S": "OPPO F19 is officially announced on April 2021."
+                    },
+                    "price": {
+                        "N": "280"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "52a602a9-cf31-4753-8031-b74db9f19c05"
+                    },
+                    "title": {
+                        "S": "Huawei P30"
+                    },
+                    "description": {
+                        "S": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK."
+                    },
+                    "price": {
+                        "N": "499"
+                    }
+                }
+            }
+        }
+    ],
+    "stocks": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "product_id": {
+                        "S": "3e344a4d-af29-4d7f-81ab-135ae9e00a41"
+                    },
+                    "count": {
+                        "N": "1"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "product_id": {
+                        "S": "e8b01837-1372-41cc-a0ee-665e3f05fe5a"
+                    },
+                    "count": {
+                        "N": "1"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "product_id": {
+                        "S": "8a7d1394-009c-4ab2-b5b4-a91dbcbcf4b7"
+                    },
+                    "count": {
+                        "N": "1"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "product_id": {
+                        "S": "61b6b726-25b7-4a32-be83-ca85656f28f2"
+                    },
+                    "count": {
+                        "N": "1"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "product_id": {
+                        "S": "52a602a9-cf31-4753-8031-b74db9f19c05"
+                    },
+                    "count": {
+                        "N": "1"
+                    }
+                }
+            }
+        }
+    ]
+}

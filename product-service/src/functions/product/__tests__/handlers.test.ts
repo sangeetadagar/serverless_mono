@@ -1,7 +1,8 @@
 import { Handler } from 'aws-lambda';
 import { middyfy } from '@libs/lambda';
 import { formatJSONResponse } from '@libs/api-gateway';
-import { PRODUCTS_LIST, PRODUCT_NOT_FOUND } from '../../../constants';
+import { PRODUCT_NOT_FOUND } from '../../../constants';
+import { PRODUCTS_LIST } from '../../../__mocks__/constants';
 jest.mock('@libs/lambda');
 
 describe('get product', () => {
@@ -44,8 +45,7 @@ describe('get product', () => {
   it('should return error when there is some error', async () => {
     const actual = await main();
     expect(actual).toEqual(formatJSONResponse({
-      statusCode: 500,
-      message: {},
+      statusCode: 500
     }));
   });
 });

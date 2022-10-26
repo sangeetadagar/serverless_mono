@@ -24,6 +24,39 @@
             "schema": {
               "$ref": "#/definitions/ProductList"
             }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "createProduct",
+        "description": "",
+        "operationId": "createProduct.post.products",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful API response"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
@@ -53,6 +86,9 @@
             "schema": {
               "$ref": "#/definitions/Product"
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
@@ -61,28 +97,28 @@
   "definitions": {
     "Product": {
       "properties": {
-        "\"id\"": {
-          "title": "Product.\"id\"",
-          "type": "number"
-        },
-        "\"title\"": {
-          "title": "Product.\"title\"",
+        "id": {
+          "title": "Product.id",
           "type": "string"
         },
-        "\"description\"": {
-          "title": "Product.\"description\"",
+        "title": {
+          "title": "Product.title",
           "type": "string"
         },
-        "\"price\"": {
-          "title": "Product.\"price\"",
+        "description": {
+          "title": "Product.description",
+          "type": "string"
+        },
+        "price": {
+          "title": "Product.price",
           "type": "number"
         }
       },
       "required": [
-        "\"id\"",
-        "\"title\"",
-        "\"description\"",
-        "\"price\""
+        "id",
+        "title",
+        "description",
+        "price"
       ],
       "additionalProperties": false,
       "title": "Product",
@@ -97,5 +133,5 @@
     }
   },
   "securityDefinitions": {},
-  "host": "dzqnp79bsj.execute-api.us-west-2.amazonaws.com/dev/"
+  "host": "21omv24q73.execute-api.us-west-2.amazonaws.com/dev/"
 };
