@@ -21,10 +21,7 @@ const importFileParser: ValidatedEventAPIGatewayProxyEvent<typeof schema> = asyn
     const s3Stream = await s3.getObject(getObjectParams).createReadStream();
     s3Stream
       .pipe(csvParser()).on('data', (data) => {
-        return formatJSONResponse({
-          message: `dataaaa`,
-          data,
-        });
+        console.log(data);
       }).on('error', (e) => {
         return formatJSONResponse({
           e,
