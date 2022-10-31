@@ -12,8 +12,8 @@ const importProductsFile: ValidatedEventAPIGatewayProxyEvent<typeof schema> = as
     const clientParams = {
       region: 'us-west-2',
       apiVersion: "2006-03-01",
-      accessKeyId: 'AKIAUJTYHMTUIWAW3FIG',
-      secretAccessKey: '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',
+      accessKeyId: '',
+      secretAccessKey: '',
       signatureVersion: "v4",
     };
     const client = new S3Client(clientParams);
