@@ -133,5 +133,5 @@
     }
   },
   "securityDefinitions": {},
-  "host": "21omv24q73.execute-api.us-west-2.amazonaws.com/dev/"
+  "host": "31se4a8q61.execute-api.us-west-2.amazonaws.com/dev/"
 };

@@ -6,7 +6,7 @@ import { DynamoDB } from 'aws-sdk'
 import { Product } from '../../types/api-types';
 import { PRODUCT_KEYS, STATUS_CODES } from '../../constants';
 
-const isRequestValid = (product: Product) => {
+export const isRequestValid = (product: Product) => {
   const { ID, TITLE, DESCRIPTION, PRICE } = PRODUCT_KEYS;
   let isValid = true;
   const keys = Object.keys(product);
