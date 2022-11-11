@@ -10,10 +10,10 @@ const importProductsFile: ValidatedEventAPIGatewayProxyEvent<typeof schema> = as
   try {
     const { name } = event.queryStringParameters;
     const clientParams = {
-      region: 'us-west-2',
+      region: process.env.REGION,
       apiVersion: "2006-03-01",
-      accessKeyId: process.env.accessKeyId,
-      secretAccessKey: process.env.secretAccessKey,
+      accessKeyId: process.env.ACCESS_KEY_ID,
+      secretAccessKey: process.env.SECRET_ACCESS_KEY,
       signatureVersion: "v4",
     };
     const client = new S3Client(clientParams);
@@ -22,7 +22,7 @@ const importProductsFile: ValidatedEventAPIGatewayProxyEvent<typeof schema> = as
       throw new Error("key not defined");
     }
     const getObjectParams = {
-      Bucket: 's3-integration-task-5',
+      Bucket: process.env.BUCKET,
       Key: `uploaded/${key}`,
       ContentType: 'text/csv'
     }

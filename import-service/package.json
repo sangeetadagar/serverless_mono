@@ -14,7 +14,7 @@
     "@aws-sdk/s3-request-presigner": "^3.199.0",
     "@middy/core": "^3.4.0",
     "@middy/http-json-body-parser": "^3.4.0",
-    "csv-parser": "^3.0.0",
+    "csvtojson": "^2.0.10",
     "serverless-iam-roles-per-function": "^3.2.0"
   },
   "devDependencies": {

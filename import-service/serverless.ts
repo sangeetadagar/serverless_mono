@@ -1,10 +1,12 @@
 import type { AWS } from '@serverless/typescript';
 import importProductsFile from '@functions/importProducts';
+import importFileParser from '@functions/importFileParser';
+import { CONFIG } from './config';
 
 const serverlessConfiguration: AWS = {
   service: 'import-service',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild'],
+  plugins: ['serverless-esbuild', 'serverless-iam-roles-per-function'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -19,8 +21,13 @@ const serverlessConfiguration: AWS = {
       {
         'Effect': 'Allow',
         'Action': ['s3:*'],
-        'Resource': ["arn:aws:s3:::s3-integration-task-5/*"]
-      }
+        'Resource': ["arn:aws:s3:::s3-integration-task-5", "arn:aws:s3:::s3-integration-task-5/*"]
+      },
+      {
+        'Effect': 'Allow',
+        'Action': ['sqs:*'],
+        'Resource': [`arn:aws:sqs:${CONFIG.REGION}:${CONFIG.ACCOUNT_NUMBER}:catalogItemsQueue`]
+      },
     ],
     apiGateway: {
       minimumCompressionSize: 1024,
@@ -29,10 +36,16 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      ACCESS_KEY_ID: CONFIG.ACCESS_KEY_ID,
+      SECRET_ACCESS_KEY: CONFIG.SECRET_ACCESS_KEY,
+      BUCKET: CONFIG.BUCKET,
+      QUEUE_URL: CONFIG.QUEUE_URL,
+      REGION: CONFIG.REGION,
+      ACCOUNT_NUMBER: CONFIG.ACCOUNT_NUMBER
     },
   },
   // import the function via paths
-  functions: { importProductsFile },
+  functions: { importProductsFile, importFileParser },
   package: { individually: true },
   custom: {
     esbuild: {
