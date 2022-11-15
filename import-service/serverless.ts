@@ -6,7 +6,8 @@ import { CONFIG } from './config';
 const serverlessConfiguration: AWS = {
   service: 'import-service',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild', 'serverless-iam-roles-per-function'],
+  plugins: ['serverless-esbuild', 'serverless-iam-roles-per-function', 'serverless-dotenv-plugin'],
+  useDotenv: true,
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -36,10 +37,7 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
-      ACCESS_KEY_ID: CONFIG.ACCESS_KEY_ID,
-      SECRET_ACCESS_KEY: CONFIG.SECRET_ACCESS_KEY,
       BUCKET: CONFIG.BUCKET,
-      QUEUE_URL: CONFIG.QUEUE_URL,
       REGION: CONFIG.REGION,
       ACCOUNT_NUMBER: CONFIG.ACCOUNT_NUMBER
     },

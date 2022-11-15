@@ -8,7 +8,8 @@ import { CONFIG } from './config';
 const serverlessConfiguration: AWS = {
   service: 'product-service',
   frameworkVersion: '3',
-  plugins: ['serverless-auto-swagger','serverless-esbuild','serverless-offline','serverless-iam-roles-per-function'],
+  plugins: ['serverless-auto-swagger','serverless-esbuild','serverless-offline','serverless-iam-roles-per-function', 'serverless-dotenv-plugin'],
+  useDotenv: true,
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -32,8 +33,6 @@ const serverlessConfiguration: AWS = {
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
       PRODUCTS_TABLE: 'products',
       STOCKS_TABLE: 'stocks',
-      ACCESS_KEY_ID: CONFIG.ACCESS_KEY_ID,
-      SECRET_ACCESS_KEY: CONFIG.SECRET_ACCESS_KEY,
       REGION: CONFIG.REGION,
       ACCOUNT_NUMBER: CONFIG.ACCOUNT_NUMBER,
       TOPIC_NAME: CONFIG.TOPIC_NAME
